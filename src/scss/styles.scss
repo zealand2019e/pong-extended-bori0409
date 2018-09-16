@@ -1,15 +1,6 @@
 $fontColor: #0091aa;
 $colorHeading: #be4a14;
-#content  // div with id: content
+#canvas
 {
-    color: $fontColor;
-}
-
-h2
-{
-    color: $colorHeading;
-}
-
-h1{
-    @extend h2;
+    background-color: $colorHeading;
 }
