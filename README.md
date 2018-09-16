@@ -1,9 +1,8 @@
-# Webpack - TypeScript - SCSS
-this project is a beginner-friendly introduction to Webpack, Type Script and SCSS.
-This includes a simple webpack configuration including TypeScript and SCSS transporation
+# Pong game built with TypeScript
+This project is based on a template for webpack/Typescript development: https://github.com/dimselab/Webpack-template
 
-## Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+The project is meant as an example of using interfaces and objects in typescript 
+
 
 ### Prerequisites
 You neet a recent installation of Node on your computer
