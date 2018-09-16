@@ -5,10 +5,18 @@ import { Player } from "./player";
 import { Ball } from "./ball";
 import { Collidable } from "./collidable";
 
+/*
+    THis is the main PONG GAME script
+*/
+
 export class GameEngine
 {
+
+    // items in the game
     public ball:Ball;
     public player1:Player;
+ 
+    // canvas info
     public canvasWidth:number;
     public canvasHeight:number;
 
@@ -18,6 +26,8 @@ export class GameEngine
 
     private canvas:HTMLCanvasElement;
     private ctx:CanvasRenderingContext2D;
+    
+    // array with all gameobjects in the game - If you want more objects in the game add them to this array!
     public objects:GameObject[] = new Array<GameObject>();
 
     // kepp track of time between loops
@@ -33,6 +43,7 @@ export class GameEngine
         this.canvasWidth = this.canvas.width;
         this.canvasHeight = this.canvas.height;
 
+        // listen for keyboard input
         document.addEventListener('keyup', this.keyUp.bind(this));
         document.addEventListener('keydown', this.keyDown.bind(this));
 
@@ -48,6 +59,7 @@ export class GameEngine
         this.gameLoop();
     }
 
+    // keyboard event
     private keyDown(event:KeyboardEvent): void
     {
         if (event.repeat) {return};
@@ -60,6 +72,7 @@ export class GameEngine
         }
     }
 
+    // keyboard event
     private keyUp(event: KeyboardEvent): void
     {
         switch (event.key) {
@@ -84,8 +97,10 @@ export class GameEngine
         
     }
 
+    // the main game loop
     private gameLoop()
     {
+        // clear the screen in every update
         this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
 
         this.date = new Date();
@@ -93,9 +108,10 @@ export class GameEngine
         var time = this.timeNow-this.timeZero;
         this.timeZero=this.timeNow;
 
+        // run throght all objects
         this.objects.forEach(element => {
-            this.objects.forEach(other => {
-                
+            //all objects are testeted for collisions on all objects
+            this.objects.forEach(other => {  
                 if (element !== other)
                 {
                     if (this.Collide(element, other))
@@ -103,13 +119,16 @@ export class GameEngine
                         element.onColliosion(other);
                     }
                 }
-                
             });
             
+            //every element is updated
             element.update(time);
+
+            // every element is drawn on canvas
             element.draw(this.ctx);
         });
         
+        // call the main gamelop again (~60fps by default)
         window.requestAnimationFrame(this.gameLoop.bind(this));
 
 

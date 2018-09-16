@@ -1,6 +1,9 @@
 import {Vector} from './vector';
 import { GameObject } from './gameObject';
 
+/*
+    this class makes a fps counter to show how often the game refreshes
+*/
 export class Framerate implements GameObject
 {
     height: number;

@@ -22,7 +22,7 @@ export class Ball implements GameObject, Collidable
         this.width = this.size;
     }
 
-    // ALLE SKAL HAVE EN BOUNDING BOX TIL COLLISION TEST?
+    // Update method takes care of all logic
     update(time: number): void {
         //testing for collisions with walls -> change direction
         if (this.position.x <=0 ||this.position.x >= this.gameEngine.canvasWidth-this.size) this.direction.x *= -1;
@@ -37,11 +37,15 @@ export class Ball implements GameObject, Collidable
         this.position.x += this.direction.x * this.speed * time/1000;
         this.position.y += this.direction.y * this.speed * time/1000;
     }
+    
+    // draw ball on canvas
     draw(ctx: CanvasRenderingContext2D): void {
         ctx.fillRect(this.position.x, this.position.y, this.size, this.size);
     }
     
+    // in case of any collision this method is called
     onColliosion(other: GameObject): void {
+        // reverse direction if player collides with ball
         if (other == this.gameEngine.player1)
         {
             this.direction.x *= -1;
