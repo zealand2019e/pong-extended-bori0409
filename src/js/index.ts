@@ -3,7 +3,6 @@ import { Framerate } from "./framerate";
 import { Vector } from "./vector";
 import { Player } from "./player";
 import { Ball } from "./ball";
-import { Collidable } from "./collidable";
 
 /*
     THis is the main PONG GAME script

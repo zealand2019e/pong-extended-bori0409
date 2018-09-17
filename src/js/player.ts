@@ -1,9 +1,8 @@
 import { Vector } from "./vector";
 import { GameObject } from "./gameObject";
 import { GameEngine } from "./index";
-import { Collidable } from "./collidable";
 
-export class Player implements GameObject, Collidable
+export class Player implements GameObject
 {   
     public position:Vector 
     private gameEngine:GameEngine;

@@ -1,9 +1,8 @@
 import { Vector } from "./vector";
 import { GameObject } from "./gameObject";
 import { GameEngine } from "./index";
-import { Collidable } from "./collidable";
 
-export class Ball implements GameObject, Collidable
+export class Ball implements GameObject
 {
     public height: number;
     public width: number;
