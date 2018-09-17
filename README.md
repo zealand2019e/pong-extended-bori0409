@@ -1,6 +1,6 @@
 # Pong game built with TypeScript
+You can see the project running on this page: http://evang.dk/pong-typescript/
 This project is based on a template for webpack/Typescript development: https://github.com/dimselab/Webpack-template
-
 The project is meant as an example of using interfaces and objects in typescript 
 
 
