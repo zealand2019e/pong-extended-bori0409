@@ -28,5 +28,9 @@ npm run webpack:prod
 ```
 That will minify your code and make is production ready
 
+### Exercises
+Anders Wrote some exercises for hthis project: [Exercises](https://docs.google.com/document/d/e/2PACX-1vTc_1p9ei3wJo6IHK1Vx3443ft1Gndb8ZV1NatRflMjJ10xoUILoWco8paWDH8vQlgeiYjcpErR58-u/pub)
+The purpose of the exercises is to get an understanding of and see posibilities in TypeScript
+
 ### Author
 Ebbe Vang
