@@ -3,6 +3,7 @@ import { Framerate } from "./framerate";
 import { Vector } from "./vector";
 import { Player } from "./player";
 import { Ball } from "./ball";
+import { HighScore } from "./HighScore";
 
 /*
     THis is the main PONG GAME script
@@ -13,6 +14,9 @@ export class GameEngine
 
     // items in the game
     public ball:Ball;
+    public ball1:Ball;
+    public ball2:Ball;
+
     public player1:Player;
  
     // canvas info
@@ -33,6 +37,7 @@ export class GameEngine
     private date: Date = new Date();
     private timeZero: number = this.date.getTime();
     private timeNow: number;
+    private highscore:number;
 
     constructor()
     {
@@ -48,12 +53,22 @@ export class GameEngine
 
         //ceate gameobjects
         this.objects.push(new Framerate(new Vector(10,10)));
+        //this.objects.push(new HighScore(new Vector(50,10)));
         
         this.player1 = new Player(new Vector(20,10), this);
         this.objects.push(this.player1);
 
-        this.ball = new Ball(new Vector(this.canvasWidth/2, this.canvasHeight/2), this);
+        this.ball = new Ball(new Vector(this.canvasWidth/2, this.canvasHeight/2),new Vector(-0.9,1), this,1);
         this.objects.push(this.ball);
+
+        //tilføjer endnu en bold
+        this.ball1 = new Ball(new Vector(this.canvasWidth/3, this.canvasHeight/3),new Vector(0.5,1), this,2);
+        this.objects.push(this.ball1);
+
+        //tilføjer endnu en bold
+        this.ball2 = new Ball(new Vector(this.canvasWidth/6, this.canvasHeight/3),new Vector(0.5,1), this,3);
+        this.objects.push(this.ball2);
+
 
         this.gameLoop();
     }
@@ -68,6 +83,7 @@ export class GameEngine
                 break;
             case "q":
                 this.qKey = true;
+                break;
         }
     }
 

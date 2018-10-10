@@ -11,14 +11,18 @@ export class Ball implements GameObject
     private direction:Vector;
     private speed:number = 60;
     private size:number= 10;
+    // private colorInc:number=1;
+    private color:string = "#aaaaaa";
 
-    constructor (position:Vector, gameEngine:GameEngine)
+
+    constructor (position:Vector, direction:Vector, gameEngine:GameEngine,private colorInc:number)
     {
         this.position = position;
-        this.direction = new Vector(0.7, 1);
+        this.direction = direction;//new Vector(xdir, 1);
         this.gameEngine = gameEngine;
         this.height = this.size;
         this.width = this.size;
+    //  this.
     }
 
     // Update method takes care of all logic
@@ -37,18 +41,45 @@ export class Ball implements GameObject
         this.position.y += this.direction.y * this.speed * time/1000;
     }
     
+
+    //function som returnerer en farve ud fra 
+    //værdien af variablen colorInc
+    changeColor():string{
+        if(this.colorInc == 1)
+        {
+            this.colorInc++;
+            return "green";
+        }
+           
+        else if (this.colorInc == 2)
+           {
+            this.colorInc++;
+            return "blue";
+           }   
+           else
+           {
+            this.colorInc=1;
+            return "red";
+           
+           }
+
+    }
+
     // draw ball on canvas
     draw(ctx: CanvasRenderingContext2D): void {
+        ctx.fillStyle = this.color; //sætter farven ud fra værdien af variablen color
         ctx.fillRect(this.position.x, this.position.y, this.size, this.size);
     }
     
     // in case of any collision this method is called
     onColliosion(other: GameObject): void {
         // reverse direction if player collides with ball
-        if (other == this.gameEngine.player1)
+        if (other == this.gameEngine.player1 || other instanceof Ball)
         {
             this.direction.x *= -1;
+            this.color = this.changeColor(); //ændre værdien af variablen color
         }
+        
     }
 
 }
