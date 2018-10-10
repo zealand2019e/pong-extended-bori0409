@@ -15,6 +15,10 @@ export class Ball implements GameObject
     private color:string = "#aaaaaa";
 
 
+    //position giver positionen på canvas
+    //direction giver hvilken vej bolden skal rulle
+    //gameEngine
+    //colorInc er tallet som bestemmer hvilken farve bolden sakl have
     constructor (position:Vector, direction:Vector, gameEngine:GameEngine,private colorInc:number)
     {
         this.position = position;
