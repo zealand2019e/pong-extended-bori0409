@@ -26,7 +26,8 @@ export class Ball implements GameObject
         this.gameEngine = gameEngine;
         this.height = this.size;
         this.width = this.size;
-    //  this.
+        this.color = this.changeColor(); //ændre værdien af variablen color så bolden starter med forskellige farver
+        
     }
 
     // Update method takes care of all logic
