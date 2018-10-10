@@ -10,6 +10,7 @@ export class Player implements GameObject
     private speed:number = 40;
     public height:number = 30;
     public width:number =10;
+    public HighScore:number = 0;
 
     constructor(position:Vector, gameEngine:GameEngine)
     {
@@ -35,6 +36,7 @@ export class Player implements GameObject
     }
 
     onColliosion(other: GameObject): void {
+        this.HighScore++;
         // not doing anything at the moment...
     }
 }
