@@ -3,12 +3,12 @@ import { Framerate } from "./framerate";
 import { Vector } from "./vector";
 import { Player } from "./player";
 import { Ball } from "./ball";
-import { HighScore } from "./HighScore";
+// import { HighScore } from "./HighScore";
 
 /*
     THis is the main PONG GAME script
 */
-
+ 
 export class GameEngine
 {
 
