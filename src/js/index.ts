@@ -131,7 +131,7 @@ export class GameEngine
                 {
                     if (this.Collide(element, other))
                     {
-                        element.onColliosion(other);
+                        element.onCollision(other);
                     }
                 }
             });

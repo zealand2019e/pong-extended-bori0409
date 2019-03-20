@@ -8,7 +8,7 @@ export class Framerate implements GameObject
 {
     height: number;
     width: number;
-    onColliosion(other: GameObject): void {
+    onCollision(other: GameObject): void {
     }
    
     constructor(position: Vector)

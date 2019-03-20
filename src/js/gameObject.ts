@@ -11,7 +11,7 @@ export interface GameObject
 
     // leave this method empty in your objects if nothing should happen on collision
     // both item in the collision will be notified through this method
-    onColliosion(other:GameObject):void;
+    onCollision(other:GameObject):void;
 
     update(time: number) : void;
     draw(ctx:CanvasRenderingContext2D) : void;

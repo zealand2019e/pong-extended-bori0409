@@ -1,6 +1,7 @@
 import { Vector } from "./vector";
 import { GameObject } from "./gameObject";
 import { GameEngine } from "./index";
+import { Player } from "./player";
 
 export class Ball implements GameObject
 {
@@ -13,6 +14,12 @@ export class Ball implements GameObject
     private size:number= 10;
     // private colorInc:number=1;
     private color:string = "#aaaaaa";
+
+    //point som gives til spilleren når denne bold rammes
+    public point:number =1;
+
+    //antal hit som bolden har fået
+    public hit:number = 0;
 
 
     //position giver positionen på canvas
@@ -53,17 +60,20 @@ export class Ball implements GameObject
         if(this.colorInc == 1)
         {
             this.colorInc++;
+            this.point = 5;
             return "green";
         }
            
         else if (this.colorInc == 2)
            {
             this.colorInc++;
+            this.point = -2;
             return "blue";
            }   
            else
            {
             this.colorInc=1;
+            this.point = 10;
             return "red";
            
            }
@@ -77,12 +87,19 @@ export class Ball implements GameObject
     }
     
     // in case of any collision this method is called
-    onColliosion(other: GameObject): void {
+    onCollision(other: GameObject): void {
         // reverse direction if player collides with ball
         if (other == this.gameEngine.player1 || other instanceof Ball)
         {
             this.direction.x *= -1;
             this.color = this.changeColor(); //ændre værdien af variablen color
+        }
+        if(other instanceof Player)
+        {
+            //optæller hit som bolden har haft når den rammer brugeren.
+            this.hit++;
+            console.log(`hit: ${this.hit}`)
+            
         }
         
     }
